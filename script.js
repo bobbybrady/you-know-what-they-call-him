@@ -203,6 +203,9 @@ function showName(index) {
   nickname.classList.add("out");
   setTimeout(() => {
     nickname.textContent = names[current];
+    const length = names[current].length;
+    const mobileSize = length > 115 ? "18px" : length > 75 ? "21px" : length > 45 ? "25px" : length > 28 ? "30px" : "clamp(32px, 9vw, 42px)";
+    nickname.style.setProperty("--mobile-name-size", mobileSize);
     number.textContent = String(current + 1).padStart(3, "0");
     nickname.classList.remove("out");
   }, 180);
